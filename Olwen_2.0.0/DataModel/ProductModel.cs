@@ -15,6 +15,7 @@ namespace Olwen_2._0._0.DataModel
         private int _productID;
         private decimal? _unitPrice;
         private decimal? _priceOnOrder;
+        private string _description;
         private BitmapImage _picture;
 
         public string Name
@@ -96,6 +97,19 @@ namespace Olwen_2._0._0.DataModel
             }
         }
 
+        public string Description
+        {
+            get
+            {
+                return _description;
+            }
+
+            set
+            {
+                _description = value;
+                Set<string>(() => this.Description, ref _description, value);
+            }
+        }
 
         public ProductModel()
         {

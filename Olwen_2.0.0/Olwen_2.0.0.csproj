@@ -253,20 +253,30 @@
     <Compile Include="Repositories\Implements\ProductRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAsyncRepository.cs" />
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Components\CategoryProfile.xaml.cs">
       <DependentUpon>CategoryProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\CustomerOrder.xaml.cs">
+      <DependentUpon>CustomerOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\CustomerProfile.xaml.cs">
       <DependentUpon>CustomerProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\ProductProfile.xaml.cs">
+      <DependentUpon>ProductProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DialogsResult\DialogOk.xaml.cs">
       <DependentUpon>DialogOk.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DialogsResult\DialogYesNo.xaml.cs">
       <DependentUpon>DialogYesNo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageCustomer.xaml.cs">
+      <DependentUpon>PageCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
@@ -286,7 +296,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Components\CustomerOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Components\CustomerProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\ProductProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +313,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DialogsResult\DialogYesNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

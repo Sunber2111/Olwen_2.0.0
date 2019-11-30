@@ -35,8 +35,7 @@ namespace Olwen_2._0._0.DependencyInjection
             return Regex.IsMatch(str, @"^[0-9]+$");
         }
 
-        public static OpenFileDialog Op = new OpenFileDialog() { Filter = "JPG(.jpg)|*.jpg|PNG(.png)|*.png|JPEG(.jpeg)|*.jpeg", Title = "Selection Images" };
-
+       
 
         public static byte[] ConvertToByte(this BitmapImage bitmapImage)
         {

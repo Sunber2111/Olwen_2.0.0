@@ -16,6 +16,9 @@ using Olwen_2._0._0.View.Components;
 using Olwen_2._0._0.View.DialogsResult;
 using MaterialDesignThemes.Wpf;
 using Olwen_2._0._0.DependencyInjection;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using Microsoft.Win32;
 
 namespace Olwen_2._0._0.ViewModel
 {
@@ -35,7 +38,14 @@ namespace Olwen_2._0._0.ViewModel
         static DialogContent dc = new DialogContent();
         static DialogOk dialog = new DialogOk();
         private const string DialogHostId = "RootDialogHostId";
+        private ProductCategory _selectedCate;
+        private ProductCategory _proCateSelected;
+        private OpenFileDialog Op;
+
+
         public DialogSession DialogSession { get; set; }
+
+        public ICommand ChoseImages { get; set; }
 
         public ObservableCollection<ProductCategory> ListCatelogys
         {
@@ -76,6 +86,36 @@ namespace Olwen_2._0._0.ViewModel
         }
 
         public DelegateCommand<string> SubmitCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand<int?> UpdateProductCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand<int?> DeleteProductCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand<string> SubmitProductCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand OpenDialogProduct
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand RefreshCommand
         {
             get;
             private set;
@@ -337,21 +377,260 @@ namespace Olwen_2._0._0.ViewModel
             {
                 _seaKey2 = value;
                 RaisePropertyChanged();
+                if (!string.IsNullOrEmpty(_seaKey2))
+                {
+                    if (SKey2 != null)
+                    {
+                        if (ListKey2.IndexOf(SKey2) == 1)
+                        {
+                            ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetProductModelsFilter(t=>t.Name.Contains(SeaKey2)));
+                        }
+                        else if (ListKey2.IndexOf(SKey2) == 0)
+                        {
+                            if (SeaKey2.IsNum())
+                            {
+                                ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetProductModelsFilter(t => t.ProductID == Convert.ToInt32(SeaKey2)));
+                            }
+                        }
+
+                    }
+                }
+                else
+                    ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetAllProductModels());
+            }
+        }
+
+        public ProductCategory SelectedCate
+        {
+            get
+            {
+                return _selectedCate;
+            }
+
+            set
+            {
+                _selectedCate = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ProductCategory ProCateSelected
+        {
+            get
+            {
+                return _proCateSelected;
+            }
+
+            set
+            {
+                _proCateSelected = value;
+                RaisePropertyChanged();
+                if(_proCateSelected != null)
+                {
+                    ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetProductModelsFilter(t=>t.CategoryID==_proCateSelected.CatelogyID));
+                }
             }
         }
 
         public ProductViewModel()
         {
+            Op = new OpenFileDialog() { Filter = "JPG(.jpg)|*.jpg|PNG(.png)|*.png|JPEG(.jpeg)|*.jpeg", Title = "Selection Images" }; 
+
             categories_Repo = new BaseAsyncRepository<ProductCategory>();
             product_Repo = new ProductRepository();
 
+            //Category
             LoadedCommand = new DelegateCommand(CreateData);
             AddPCCommand = new DelegateCommand(ShowNewCategory);
             DeleteCategoryCommand = new DelegateCommand<int?>(DeleteCategory);
             UpdateCategoryCommand = new DelegateCommand<int?>(ShowDataCagory);
             SubmitCommand = new DelegateCommand<string>(SubmitCategory, CanSubmit);
 
+            //Product
+            OpenDialogProduct = new DelegateCommand(ShowNewProduct);
+            ChoseImages = new RelayCommand(SelectImg);
+            UpdateProductCommand = new DelegateCommand<int?>(ShowProduct);
+            DeleteProductCommand = new DelegateCommand<int?>(DeleteProduct);
+            SubmitProductCommand = new DelegateCommand<string>(SubmitProductAsync);
+            RefreshCommand = new DelegateCommand(RefreshProduct);
+
         }
+
+        private async void RefreshProduct()
+        {
+            try
+            {
+                ListProducts = new ObservableCollection<ProductModel>(await product_Repo.GetAllProductModelsAsync());
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
+        }
+
+        private async void SubmitProductAsync(string obj)
+        {
+            try
+            {
+                var newpro = new Product()
+                {
+                    Name = ProductName,
+                    Description = Description,
+                    UnitPrice = Convert.ToDecimal(Price),
+                    UnitOnOrder = Convert.ToDecimal(PriceSales),
+                };
+
+                if (ImgProduct != null)
+                    newpro.Picture = ImgProduct.ConvertToByte();
+
+                if (SelectedCate != null)
+                    newpro.CategoryID = SelectedCate.CatelogyID;
+
+
+                if (string.IsNullOrEmpty(obj))
+                {
+                    //Create new category
+                    var objresult = await product_Repo.Add(newpro);
+                    if (objresult != null)
+                    {
+                        dc = new DialogContent() { Content = "Thêm Thành Công", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+                        ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetAllProductModels());
+                    }
+                    else
+                    {
+                        dc = new DialogContent() { Content = "Thêm Thất Bại", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+                    }
+
+                }
+                else
+                {
+                    //update category
+
+                    newpro.ProductID = Convert.ToInt32(ProductID);
+
+                    if (await product_Repo.Update(newpro))
+                    {
+                        dc = new DialogContent() { Content = "Cập Nhật Thành Công", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+                        ListProducts = new ObservableCollection<ProductModel>(product_Repo.GetAllProductModels());
+                    }
+                    else
+                    {
+                        dc = new DialogContent() { Content = "Cập Nhật Thất Bại", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+                    }
+                }
+            }
+            catch 
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
+        }
+
+        private async void DeleteProduct(int? obj)
+        {
+            try
+            {
+                dc = new DialogContent() { Content = "Bạn muốn xóa sản phẩm này ?", Tilte = "Thông Báo" };
+                var dialogYS = new DialogYesNo() { DataContext = dc };
+                var result = (bool)await DialogHost.Show(dialogYS, DialogHostId);
+                if (result)
+                {
+                    if (obj != null)
+                    {
+                        if (await product_Repo.Remove((int)obj))
+                        {
+                            ListProducts.Remove(ListProducts.SingleOrDefault(t => t.ProductID == (int)obj));
+                            dc = new DialogContent() { Content = "Xóa Thành Công", Tilte = "Thông Báo" };
+                            dialog = new DialogOk() { DataContext = dc };
+                            await DialogHost.Show(dialog, DialogHostId);
+                        }
+                        else
+                        {
+                            dc = new DialogContent() { Content = "Xóa Thất Bại", Tilte = "Thông Báo" };
+                            dialog = new DialogOk() { DataContext = dc };
+                            await DialogHost.Show(dialog, DialogHostId);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private async void ShowProduct(int? obj)
+        {
+            if(obj!=null)
+            {
+                int index = (int)obj;
+
+                var pro = await product_Repo.GetById(index);
+
+                if(pro!=null)
+                {
+                    ProductID = pro.ProductID.ToString();
+                    ProductName = pro.Name;
+                    Description = pro.Description;
+                    Price = pro.UnitPrice.ToString();
+                    PriceSales = pro.UnitOnOrder.ToString();
+                    ImgProduct = pro.Image;
+                    SelectedCate = ListCatelogys.SingleOrDefault(t => t.CatelogyID == pro.CategoryID);
+                }
+                else
+                {
+                    ProductID = ProductName = Description = Price = PriceSales = null;
+                    ImgProduct = null;
+                    SelectedCate = null;
+                }
+                await DialogHost.Show(new ProductProfile(), DialogHostId);
+            }
+        }
+
+        public void SelectImg()
+        {
+            try
+            {
+                
+                if (Op.ShowDialog() == true)
+                {
+                    ImgProduct = new BitmapImage(new Uri(Op.FileName));
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private async void ShowNewProduct()
+        {
+            ProductID = ProductName = Description = Price = PriceSales = null;
+            ImgProduct = null;
+            SelectedCate = null;
+            await DialogHost.Show(new ProductProfile(), DialogHostId);
+        }
+
+        // Category 
 
         private bool CanSubmit(string arg)
         {

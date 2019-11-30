@@ -15,6 +15,6 @@ namespace Olwen_2._0._0.Repositories.Interfaces
 
         IEnumerable<ProductModel> GetAllProductModels();
 
-        Task<IEnumerable<ProductModel>> GetProductModelsFilter(Expression<Func<Product, bool>> predicate);
+        IEnumerable<ProductModel> GetProductModelsFilter(Func<Product, bool> predicate);
     }
 }

@@ -36,6 +36,7 @@ namespace Olwen_2._0._0.ViewModel
 
             SimpleIoc.Default.Register<ProductViewModel>();
 
+            SimpleIoc.Default.Register<CustomerViewModel>();
 
         }
 
@@ -52,6 +53,14 @@ namespace Olwen_2._0._0.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<ProductViewModel>();
+            }
+        }
+
+        public CustomerViewModel Customer
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CustomerViewModel>();
             }
         }
         

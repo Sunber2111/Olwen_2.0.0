@@ -9,9 +9,11 @@
 
 namespace Olwen_2._0._0.Model
 {
+    using Olwen_2._0._0.DependencyInjection;
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media.Imaging;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,7 +31,22 @@ namespace Olwen_2._0._0.Model
         public string Description { get; set; }
         public byte[] Picture { get; set; }
         public Nullable<int> CategoryID { get; set; }
-    
+
+        private BitmapImage _image;
+
+        public BitmapImage Image
+        {
+            get
+            {
+                return MyTool.LoadImage(Picture);
+            }
+
+            set
+            {
+                _image = value;
+            }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }

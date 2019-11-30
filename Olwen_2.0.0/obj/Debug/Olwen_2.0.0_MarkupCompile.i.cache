@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\App.xaml
-71762499448
+10-37950298
 21221651019
-45-1833560555
+49113524320
 1551753877209
-ResourceXAML\MainResource.xaml;View\Components\CategoryProfile.xaml;View\Components\CustomerProfile.xaml;View\DialogsResult\DialogOk.xaml;View\DialogsResult\DialogYesNo.xaml;View\Pages\PageProduct.xaml;View\Windows\MainWindow.xaml;
+ResourceXAML\MainResource.xaml;View\Components\CategoryProfile.xaml;View\Components\CustomerOrder.xaml;View\Components\CustomerProfile.xaml;View\Components\ProductProfile.xaml;View\DialogsResult\DialogOk.xaml;View\DialogsResult\DialogYesNo.xaml;View\Pages\PageCustomer.xaml;View\Pages\PageProduct.xaml;View\Windows\MainWindow.xaml;
 
 True
 

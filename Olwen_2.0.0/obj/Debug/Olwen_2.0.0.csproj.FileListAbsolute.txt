@@ -102,3 +102,10 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\Cate
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\CustomerProfile.baml
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\DialogsResult\DialogOk.baml
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\DialogsResult\DialogYesNo.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\ProductProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\ProductProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\CustomerOrder.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageCustomer.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\CustomerOrder.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageCustomer.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.csprojAssemblyReference.cache

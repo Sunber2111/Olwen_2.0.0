@@ -28,9 +28,9 @@ namespace Olwen_2._0._0.Repositories.Implements
                             });
         }
 
-        public async Task<IEnumerable<ProductModel>> GetProductModelsFilter(Expression<Func<Product, bool>> predicate)
+        public IEnumerable<ProductModel> GetProductModelsFilter(Func<Product, bool> predicate)
         {
-            var ds = await GetFilterAsync(predicate);
+            var ds = GetFilter(predicate);
             return ds.Select(
                             c => new ProductModel()
                             {
