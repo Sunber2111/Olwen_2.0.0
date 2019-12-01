@@ -254,6 +254,7 @@
     <Compile Include="Repositories\Interfaces\IAsyncRepository.cs" />
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -266,6 +267,9 @@
     <Compile Include="View\Components\CustomerProfile.xaml.cs">
       <DependentUpon>CustomerProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\EmployeeProfile.xaml.cs">
+      <DependentUpon>EmployeeProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\ProductProfile.xaml.cs">
       <DependentUpon>ProductProfile.xaml</DependentUpon>
     </Compile>
@@ -277,6 +281,9 @@
     </Compile>
     <Compile Include="View\Pages\PageCustomer.xaml.cs">
       <DependentUpon>PageCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageEmployee.xaml.cs">
+      <DependentUpon>PageEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
@@ -304,6 +311,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Components\EmployeeProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Components\ProductProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -317,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PageCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

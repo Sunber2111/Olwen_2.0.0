@@ -54,6 +54,6 @@
         </ListView>
         -->
 
-        <myuc:PageCustomer />
+        <myuc:PageEmployee />
     </Grid>
 </Window>

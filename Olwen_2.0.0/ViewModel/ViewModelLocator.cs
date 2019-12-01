@@ -31,12 +31,13 @@ namespace Olwen_2._0._0.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-           
             SimpleIoc.Default.Register<MainViewModel>();
 
             SimpleIoc.Default.Register<ProductViewModel>();
 
             SimpleIoc.Default.Register<CustomerViewModel>();
+
+            SimpleIoc.Default.Register<EmployeeViewModel>();
 
         }
 
@@ -61,6 +62,14 @@ namespace Olwen_2._0._0.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<CustomerViewModel>();
+            }
+        }
+
+        public EmployeeViewModel Employee
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EmployeeViewModel>();
             }
         }
         

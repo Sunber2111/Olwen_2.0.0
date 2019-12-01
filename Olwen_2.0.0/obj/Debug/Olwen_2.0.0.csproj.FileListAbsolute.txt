@@ -109,3 +109,7 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageCusto
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\CustomerOrder.baml
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageCustomer.baml
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.csprojAssemblyReference.cache
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\EmployeeProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageEmployee.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\EmployeeProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageEmployee.baml
