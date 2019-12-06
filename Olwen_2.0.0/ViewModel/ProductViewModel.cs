@@ -593,7 +593,7 @@ namespace Olwen_2._0._0.ViewModel
                     Description = pro.Description;
                     Price = pro.UnitPrice.ToString();
                     PriceSales = pro.UnitOnOrder.ToString();
-                    ImgProduct = pro.Image;
+                    ImgProduct = pro.Picture.LoadImage();
                     SelectedCate = ListCatelogys.SingleOrDefault(t => t.CatelogyID == pro.CategoryID);
                 }
                 else

@@ -16,5 +16,9 @@ namespace Olwen_2._0._0.Repositories.Interfaces
         IEnumerable<ProductModel> GetAllProductModels();
 
         IEnumerable<ProductModel> GetProductModelsFilter(Func<Product, bool> predicate);
+
+        Task<IEnumerable<ProductStoreModel>> GetAllProductStoreByStoreIDAsync(int storeID);
+
+        IEnumerable<ProductStoreModel> GetAllProductStoreByStoreID(int storeID);
     }
 }

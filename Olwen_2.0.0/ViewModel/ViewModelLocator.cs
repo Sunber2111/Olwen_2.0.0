@@ -1,16 +1,3 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:Olwen_2._0._0"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
 
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
@@ -18,15 +5,9 @@ using GalaSoft.MvvmLight.Ioc;
 
 namespace Olwen_2._0._0.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
+    
     public class ViewModelLocator
     {
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -38,6 +19,10 @@ namespace Olwen_2._0._0.ViewModel
             SimpleIoc.Default.Register<CustomerViewModel>();
 
             SimpleIoc.Default.Register<EmployeeViewModel>();
+
+            SimpleIoc.Default.Register<SupplierViewModel>();
+
+            SimpleIoc.Default.Register<StoreViewModel>();
 
         }
 
@@ -73,6 +58,22 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
         
+        public SupplierViewModel Supplier
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SupplierViewModel>();
+            }
+        }
+
+        public StoreViewModel Store
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<StoreViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

@@ -1,4 +1,5 @@
-﻿using Olwen_2._0._0.DataModel;
+﻿using Microsoft.EntityFrameworkCore;
+using Olwen_2._0._0.DataModel;
 using Olwen_2._0._0.DependencyInjection;
 using Olwen_2._0._0.Model;
 using Olwen_2._0._0.Repositories.Interfaces;
@@ -55,7 +56,38 @@ namespace Olwen_2._0._0.Repositories.Implements
                                 UnitPrice = c.UnitPrice,
                                 Quantity = SqlSupport.GetQuantityByProductId(c.ProductID)
                             });
+            
+        }
 
+        public async Task<IEnumerable<ProductStoreModel>> GetAllProductStoreByStoreIDAsync(int storeID)
+        {
+            var query = from c in dbcontext.StoreDetails
+                        where c.Store.StoreID == storeID
+                        select new ProductStoreModel()
+                        {
+                            Name = c.Product.Name,
+                            ProductID = c.Product.ProductID,
+                            Picture = c.Product.Picture.LoadImage(),
+                            Quantity = c.Quantity
+                        };
+            return await query.ToListAsync();
+        }
+
+        public IEnumerable<ProductStoreModel> GetAllProductStoreByStoreID(int storeID)
+        {
+            var query = from c in dbcontext.StoreDetails
+                        where c.Store.StoreID == storeID
+                        select c;
+
+            return query.ToList().Select(
+                    c => new ProductStoreModel()
+                    {
+                        Name = c.Product.Name,
+                        ProductID = c.Product.ProductID,
+                        Picture = c.Product.Picture.LoadImage(),
+                        Quantity = c.Quantity
+                    }
+                );
         }
     }
 }

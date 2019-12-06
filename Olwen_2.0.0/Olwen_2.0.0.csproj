@@ -173,6 +173,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataModel\ProductModel.cs" />
+    <Compile Include="DataModel\ProductStoreModel.cs" />
+    <Compile Include="DataModel\SupplierModel.cs" />
     <Compile Include="DependencyInjection\DbSupport.cs" />
     <Compile Include="DependencyInjection\MyTool.cs" />
     <Compile Include="DependencyInjection\SqlSupport.cs" />
@@ -251,12 +253,16 @@
     </Compile>
     <Compile Include="Repositories\Implements\BaseAsyncRepository.cs" />
     <Compile Include="Repositories\Implements\ProductRepository.cs" />
+    <Compile Include="Repositories\Implements\StoreDetailRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAsyncRepository.cs" />
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IStoreDetail.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\StoreViewModel.cs" />
+    <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Components\CategoryProfile.xaml.cs">
       <DependentUpon>CategoryProfile.xaml</DependentUpon>
@@ -273,6 +279,15 @@
     <Compile Include="View\Components\ProductProfile.xaml.cs">
       <DependentUpon>ProductProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\ProductStoreProfile.xaml.cs">
+      <DependentUpon>ProductStoreProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\StoreProfile.xaml.cs">
+      <DependentUpon>StoreProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\SupplierProfile.xaml.cs">
+      <DependentUpon>SupplierProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DialogsResult\DialogOk.xaml.cs">
       <DependentUpon>DialogOk.xaml</DependentUpon>
     </Compile>
@@ -287,6 +302,12 @@
     </Compile>
     <Compile Include="View\Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageStore.xaml.cs">
+      <DependentUpon>PageStore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageSupplier.xaml.cs">
+      <DependentUpon>PageSupplier.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -319,6 +340,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Components\ProductStoreProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\StoreProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\SupplierProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DialogsResult\DialogOk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -336,6 +369,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PageProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -378,9 +419,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\ComponentViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Model\DbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

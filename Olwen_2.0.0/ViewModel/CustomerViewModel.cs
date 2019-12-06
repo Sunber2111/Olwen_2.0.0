@@ -538,7 +538,7 @@ namespace Olwen_2._0._0.ViewModel
                 {
                     Name = cus.Name;
                     CusID = cus.CusID.ToString();
-                    ImgCus = cus.Image;
+                    ImgCus = cus.Avatar.LoadImage();
                     Phone = cus.Phone;
                     if (cus.Sex == true)
                         IsB = true;

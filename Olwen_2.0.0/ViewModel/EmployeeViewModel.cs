@@ -425,7 +425,7 @@ namespace Olwen_2._0._0.ViewModel
                 {
                     Name = emp.Name;
                     EmpID = emp.EmpID.ToString();
-                    ImgEmp = emp.Image;
+                    ImgEmp = emp.Avatar.LoadImage();
                     Phone = emp.Phone;
                     IsB = IsG = false;
                     if (emp.Sex == true)
