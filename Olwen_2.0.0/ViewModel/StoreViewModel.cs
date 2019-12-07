@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Olwen_2._0._0.ViewModel
 {
@@ -26,6 +27,7 @@ namespace Olwen_2._0._0.ViewModel
         private ObservableCollection<Store> _listStore;
         private ObservableCollection<ProductStoreModel> _listProSto;
         private ObservableCollection<Employee> _listManager;
+        private ObservableCollection<ProductStoreModel> _listProRest;
         private Employee _manager;
         private Store _selectedSto;
         private string _storeID, _name, _address, _description;
@@ -57,6 +59,30 @@ namespace Olwen_2._0._0.ViewModel
         }
 
         public DelegateCommand<int?> DeleteProCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand AddProCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand RefProCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand RefStoreCommand
+        {
+            get;
+            private set;
+        }
+
+        public DelegateCommand AddPro
         {
             get;
             private set;
@@ -204,6 +230,19 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
 
+        public ObservableCollection<ProductStoreModel> ListProRest
+        {
+            get
+            {
+                return _listProRest;
+            }
+
+            set
+            {
+                _listProRest = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public StoreViewModel()
         {
@@ -219,6 +258,86 @@ namespace Olwen_2._0._0.ViewModel
             AddStore = new DelegateCommand(AddNewStore);
             UpdateProCommand = new DelegateCommand<int?>(UpdateQty);
             DeleteProCommand = new DelegateCommand<int?>(DeletePro);
+            AddProCommand = new DelegateCommand(ShowRestPro);
+            AddPro = new DelegateCommand(AddProToStore);
+            RefStoreCommand = new DelegateCommand(CreateData);
+            RefProCommand = new DelegateCommand(RefreshPro);
+        }
+
+        private async void RefreshPro()
+        {
+            try
+            {
+                ListProSto = new ObservableCollection<ProductStoreModel>(product_repo.GetAllProductStoreByStoreID(SelectedSto.StoreID));
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
+        }
+
+        private async void AddProToStore()
+        {
+            try
+            {
+
+                var ds = ListProRest.Where(t => t.Quantity != 0);
+                if(ds!=null)
+                {
+                    if(sd_repo.AddListProToStore(ds,SelectedSto.StoreID))
+                    {
+                        dc = new DialogContent() { Content = "Thêm Thành Công", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+
+                        foreach(var i in ds)
+                        {
+                            ListProSto.Add(i);
+                        }
+                    }
+                    else
+                    {
+                        dc = new DialogContent() { Content = "Thêm Thất Bại", Tilte = "Thông Báo" };
+                        dialog = new DialogOk() { DataContext = dc };
+                        DialogHost.CloseDialogCommand.Execute(null, null);
+                        await DialogHost.Show(dialog, DialogHostId);
+                    }
+                }
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
+        }
+
+        private async void ShowRestPro()
+        {
+            try
+            {
+                if(SelectedSto!=null)
+                {
+                    ListProRest = new ObservableCollection<ProductStoreModel>(product_repo.GetAllProductStoreRest(SelectedSto.StoreID));
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    await DialogHost.Show(new ProductStoreProfile(), DialogHostId);
+                }
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
         }
 
         private async void DeletePro(int? obj)

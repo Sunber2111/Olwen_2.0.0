@@ -6,7 +6,9 @@
         xmlns:myuc="clr-namespace:Olwen_2._0._0.View.Pages"
         x:Class="Olwen_2._0._0.View.Windows.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Olwen - Chuỗi Cung Ứng Coffee"
+        WindowStartupLocation="CenterScreen"
+        xmlns:myc="clr-namespace:Olwen_2._0._0.View.Components"
         Height="750"
         Width="1100">
 
@@ -54,6 +56,7 @@
         </ListView>
         -->
 
-        <myuc:PageStore />
+        <myc:OrderProfile />
+
     </Grid>
 </Window>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\App.xaml
-16-765300472
+191773812258
 21221651019
-611703894206
+67-507641349
 1551753877209
-ResourceXAML\MainResource.xaml;View\Components\CategoryProfile.xaml;View\Components\CustomerOrder.xaml;View\Components\CustomerProfile.xaml;View\Components\EmployeeProfile.xaml;View\Components\ProductProfile.xaml;View\Components\StoreProfile.xaml;View\Components\SupplierProfile.xaml;View\DialogsResult\DialogOk.xaml;View\DialogsResult\DialogYesNo.xaml;View\Pages\PageCustomer.xaml;View\Pages\PageEmployee.xaml;View\Pages\PageProduct.xaml;View\Pages\PageStore.xaml;View\Pages\PageSupplier.xaml;View\Windows\MainWindow.xaml;
+ResourceXAML\MainResource.xaml;View\Components\CategoryProfile.xaml;View\Components\CustomerOrder.xaml;View\Components\CustomerProfile.xaml;View\Components\EmployeeProfile.xaml;View\Components\OrderProfile.xaml;View\Components\ProductProfile.xaml;View\Components\ProductStoreProfile.xaml;View\Components\StoreProfile.xaml;View\Components\SupplierProfile.xaml;View\DialogsResult\DialogOk.xaml;View\DialogsResult\DialogYesNo.xaml;View\Pages\PageCustomer.xaml;View\Pages\PageEmployee.xaml;View\Pages\PageProduct.xaml;View\Pages\PageSales.xaml;View\Pages\PageStore.xaml;View\Pages\PageSupplier.xaml;View\Windows\MainWindow.xaml;
 
 False
 

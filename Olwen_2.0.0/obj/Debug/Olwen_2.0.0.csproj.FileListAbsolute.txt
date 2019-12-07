@@ -121,3 +121,9 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.pdb
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.csprojAssemblyReference.cache
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\StoreProfile.g.cs
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\StoreProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\ProductStoreProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\ProductStoreProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageSales.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageSales.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\OrderProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\OrderProfile.baml

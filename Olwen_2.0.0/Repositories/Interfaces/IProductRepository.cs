@@ -20,5 +20,11 @@ namespace Olwen_2._0._0.Repositories.Interfaces
         Task<IEnumerable<ProductStoreModel>> GetAllProductStoreByStoreIDAsync(int storeID);
 
         IEnumerable<ProductStoreModel> GetAllProductStoreByStoreID(int storeID);
+
+        IEnumerable<ProductStoreModel> GetAllProductStoreRest(int storeID);
+
+        IEnumerable<ProductODModel> GetAllProductODByOrderID(int orderID);
+
+        IEnumerable<Store> GetAllStoreByProductID(int productID);
     }
 }

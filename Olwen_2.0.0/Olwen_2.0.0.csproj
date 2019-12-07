@@ -173,6 +173,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataModel\ProductModel.cs" />
+    <Compile Include="DataModel\ProductODModel.cs" />
     <Compile Include="DataModel\ProductStoreModel.cs" />
     <Compile Include="DataModel\SupplierModel.cs" />
     <Compile Include="DependencyInjection\DbSupport.cs" />
@@ -257,10 +258,12 @@
     <Compile Include="Repositories\Interfaces\IAsyncRepository.cs" />
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
     <Compile Include="Repositories\Interfaces\IStoreDetail.cs" />
+    <Compile Include="ViewModel\CreateOrderViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SalesViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -275,6 +278,9 @@
     </Compile>
     <Compile Include="View\Components\EmployeeProfile.xaml.cs">
       <DependentUpon>EmployeeProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\OrderProfile.xaml.cs">
+      <DependentUpon>OrderProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Components\ProductProfile.xaml.cs">
       <DependentUpon>ProductProfile.xaml</DependentUpon>
@@ -302,6 +308,9 @@
     </Compile>
     <Compile Include="View\Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageSales.xaml.cs">
+      <DependentUpon>PageSales.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PageStore.xaml.cs">
       <DependentUpon>PageStore.xaml</DependentUpon>
@@ -333,6 +342,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Components\EmployeeProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\OrderProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -369,6 +382,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PageProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

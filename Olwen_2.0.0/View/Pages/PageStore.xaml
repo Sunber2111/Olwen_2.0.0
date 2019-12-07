@@ -16,7 +16,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <md:DialogHost Identifier="RootDialogHost4"> 
+    <md:DialogHost Identifier="RootDialogHost4" CloseOnClickAway="True"> 
         
         <Grid MinWidth="1200">
 
@@ -47,6 +47,7 @@
                 </Button>
 
                 <Button Width="80"
+                        Command="{Binding RefStoreCommand}"
                         BorderBrush="{x:Null}"
                         Margin="20 0 0 0"
                         Content="Refresh"
@@ -158,6 +159,7 @@
                            FontWeight="DemiBold" />
 
                 <Button Width="80"
+                        Command="{Binding AddProCommand}"
                         BorderBrush="{x:Null}"
                         Margin="70 0 0 0"
                         Content="Add"
@@ -167,6 +169,7 @@
                 </Button>
 
                 <Button Width="80"
+                        Command="{Binding RefProCommand}"
                         BorderBrush="{x:Null}"
                         Margin="20 0 0 0"
                         Content="Refresh"
@@ -234,7 +237,7 @@
                                 </Image>
 
                                 <TextBox Height="70"
-                                         Width="70"
+                                         Width="70"                                         
                                          VerticalContentAlignment="Center"
                                          Text="{Binding Quantity,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                          Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
