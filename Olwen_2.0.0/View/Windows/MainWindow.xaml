@@ -56,7 +56,7 @@
         </ListView>
         -->
 
-        <myc:OrderProfile />
+        <myuc:PageSales />
 
     </Grid>
 </Window>

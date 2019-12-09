@@ -23,8 +23,8 @@ namespace Olwen_2._0._0.View.Windows
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
 
-           
         }
     }
 

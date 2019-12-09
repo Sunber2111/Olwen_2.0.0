@@ -27,6 +27,8 @@ namespace Olwen_2._0._0.ViewModel
             SimpleIoc.Default.Register<SalesViewModel>();
 
             SimpleIoc.Default.Register<CreateOrderViewModel>();
+
+            SimpleIoc.Default.Register<LoginViewModel>();
         }
 
         public MainViewModel Main
@@ -92,6 +94,15 @@ namespace Olwen_2._0._0.ViewModel
                 return ServiceLocator.Current.GetInstance<CreateOrderViewModel>();
             }
         }
+
+        public LoginViewModel Login
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoginViewModel>();
+            }
+        }
+
 
         public static void Cleanup()
         {

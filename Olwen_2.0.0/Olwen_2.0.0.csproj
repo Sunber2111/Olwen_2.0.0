@@ -110,6 +110,9 @@
     <Reference Include="MvvmCross, Version=6.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.6.4.1\lib\net461\MvvmCross.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Prism, Version=7.2.0.1422, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.Core.7.2.0.1422\lib\net45\Prism.dll</HintPath>
     </Reference>
@@ -172,6 +175,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="App_Data\AccLogin.cs" />
     <Compile Include="DataModel\ProductModel.cs" />
     <Compile Include="DataModel\ProductODModel.cs" />
     <Compile Include="DataModel\ProductStoreModel.cs" />
@@ -179,6 +183,7 @@
     <Compile Include="DependencyInjection\DbSupport.cs" />
     <Compile Include="DependencyInjection\MyTool.cs" />
     <Compile Include="DependencyInjection\SqlSupport.cs" />
+    <Compile Include="DependencyInjection\StateLogin.cs" />
     <Compile Include="Model\Account.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -261,6 +266,7 @@
     <Compile Include="ViewModel\CreateOrderViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
     <Compile Include="ViewModel\SalesViewModel.cs" />
@@ -269,6 +275,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Components\CategoryProfile.xaml.cs">
       <DependentUpon>CategoryProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\ControlBar.xaml.cs">
+      <DependentUpon>ControlBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Components\CustomerOrder.xaml.cs">
       <DependentUpon>CustomerOrder.xaml</DependentUpon>
@@ -294,6 +303,8 @@
     <Compile Include="View\Components\SupplierProfile.xaml.cs">
       <DependentUpon>SupplierProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ComponentViewModel\BaseViewModel.cs" />
+    <Compile Include="View\ComponentViewModel\ControlBarViewModel.cs" />
     <Compile Include="View\DialogsResult\DialogOk.xaml.cs">
       <DependentUpon>DialogOk.xaml</DependentUpon>
     </Compile>
@@ -318,6 +329,9 @@
     <Compile Include="View\Pages\PageSupplier.xaml.cs">
       <DependentUpon>PageSupplier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -330,6 +344,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Components\CategoryProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\ControlBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -397,6 +415,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -424,6 +446,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App_Data\AccountLogin.json" />
     <None Include="Model\DbModel.edmx.diagram">
       <DependentUpon>DbModel.edmx</DependentUpon>
     </None>
@@ -448,6 +471,10 @@
       <DependentUpon>DbModel.edmx</DependentUpon>
       <LastGenOutput>DbModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="View\Images\bg21.png" />
+    <Resource Include="View\Images\bg11.png" />
+    <Resource Include="View\Images\bg12.png" />
+    <Resource Include="View\Images\bg3.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

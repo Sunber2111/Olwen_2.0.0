@@ -1,9 +1,11 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using MaterialDesignThemes.Wpf;
 using Olwen_2._0._0.DataModel;
 using Olwen_2._0._0.Model;
 using Olwen_2._0._0.Repositories.Implements;
 using Olwen_2._0._0.Repositories.Interfaces;
+using Olwen_2._0._0.View.Components;
 using Olwen_2._0._0.View.DialogsResult;
 using Prism.Commands;
 using System;
@@ -205,6 +207,58 @@ namespace Olwen_2._0._0.ViewModel
             oh_repo = new BaseAsyncRepository<OrderHeader>();
             LoadedCommand = new DelegateCommand(CreateData);
             DeleteOrderCommand = new DelegateCommand<int?>(DeleteOrder);
+            AddNewOrder = new DelegateCommand(CreateOrder);
+
+            MessengerInstance.Register<OrderHeader>(this, Addsuccess);
+        }
+
+        private async void Addsuccess(OrderHeader obj)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    var newobj = await oh_repo.GetById(obj.OrderID);
+                    ListOrder.Add(newobj);
+                    dc = new DialogContent() { Content = "Thêm Thành Công", Tilte = "Thông Báo" };
+                    dialog = new DialogOk() { DataContext = dc };
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    await DialogHost.Show(dialog, DialogHostId);
+                }
+                else
+                {
+                    dc = new DialogContent() { Content = "Thêm Thất Bại", Tilte = "Thông Báo" };
+                    dialog = new DialogOk() { DataContext = dc };
+                    DialogHost.CloseDialogCommand.Execute(null, null);
+                    await DialogHost.Show(dialog, DialogHostId);
+                }
+                
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
+        }
+
+        private async void CreateOrder()
+        {
+            try
+            {
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(new OrderProfile(), DialogHostId);
+            }
+            catch
+            {
+                dc.Content = "Có Lỗi";
+                dc.Tilte = "Thông Báo";
+                dialog = new DialogOk() { DataContext = dc };
+                DialogHost.CloseDialogCommand.Execute(null, null);
+                await DialogHost.Show(dialog, DialogHostId);
+            }
         }
 
         private async void DeleteOrder(int? obj)

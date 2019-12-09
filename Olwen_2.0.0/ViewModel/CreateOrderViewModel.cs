@@ -14,6 +14,7 @@ using System.Windows;
 using Olwen_2._0._0.View.DialogsResult;
 using MaterialDesignThemes.Wpf;
 using Olwen_2._0._0.DataModel;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace Olwen_2._0._0.ViewModel
 {
@@ -330,6 +331,8 @@ namespace Olwen_2._0._0.ViewModel
                     if (SelectedLog != null)
                         newOrder.LogId = SelectedLog.LogID;
 
+                    newOrder.OrderDate = DateTime.Now;
+
                     foreach(var i in ListOD)
                     {
                         newOrder.OrderDetails.Add(new OrderDetail()
@@ -341,26 +344,14 @@ namespace Olwen_2._0._0.ViewModel
                         });
                     }
 
-                    var result = oh_repo.Add(newOrder);
-                    if (result!=null)
-                    {
-                        dc = new DialogContent() { Content = "Thêm Thành Công", Tilte = "Thông Báo" };
-                        dialog = new DialogOk() { DataContext = dc };
-                        DialogHost.CloseDialogCommand.Execute(null, null);
-                        await DialogHost.Show(dialog, DialogHostId);
-                    }
-                    else
-                    {
-                        dc = new DialogContent() { Content = "Thêm Thất Bại", Tilte = "Thông Báo" };
-                        dialog = new DialogOk() { DataContext = dc };
-                        DialogHost.CloseDialogCommand.Execute(null, null);
-                        await DialogHost.Show(dialog, DialogHostId);
-                    }
+                    var result = await oh_repo.Add(newOrder);
+
+                    MessengerInstance.Send<OrderHeader>(result);
                 }
             }
             catch
             {
-                Raiserror();
+                MessageBox.Show("Có Lỗi");
             }
         }
 
@@ -379,16 +370,13 @@ namespace Olwen_2._0._0.ViewModel
                         var item = ListOD.SingleOrDefault(t => t.ProductID == (int)obj);
                         ListOD.Remove(item);
                         Subtotal -= (double)item.UnitPrice * (int)item.OrderQty;
-                        dc = new DialogContent() { Content = "Xóa Thành Công", Tilte = "Thông Báo" };
-                        dialog = new DialogOk() { DataContext = dc };
-                        await DialogHost.Show(dialog, DialogHostId);
-                        
+
                     }
                 }
             }
             catch 
             {
-                Raiserror();
+                MessageBox.Show("Có Lỗi", "Thông Báo",MessageBoxButton.OK,MessageBoxImage.Warning);
             }
         }
 
@@ -420,51 +408,28 @@ namespace Olwen_2._0._0.ViewModel
                                 }
                                 else
                                 {
-                                    dc.Content = "số lượng phải nhỏ hơn hoặc bằng số lượng hiện tại";
-                                    dc.Tilte = "Thông Báo";
-                                    dialog = new DialogOk() { DataContext = dc };
-                                    DialogHost.CloseDialogCommand.Execute(null, null);
-                                    await DialogHost.Show(dialog, DialogHostId);
+                                    MessageBox.Show("số lượng phải nhỏ hơn hoặc bằng số lượng hiện tại", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 }
                             }
                             else
                             {
-                                dc.Content = "Đã Tồn Tại Trong giỏ Hàng";
-                                dc.Tilte = "Thông Báo";
-                                dialog = new DialogOk() { DataContext = dc };
-                                DialogHost.CloseDialogCommand.Execute(null, null);
-                                await DialogHost.Show(dialog, DialogHostId);
+                                MessageBox.Show("Đã Tồn Tại Trong Giỏ Hàng", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                             }
                         }
                         else
                         {
-                            dc.Content = "Có Lỗi - số lượng phải là số";
-                            dc.Tilte = "Thông Báo";
-                            dialog = new DialogOk() { DataContext = dc };
-                            DialogHost.CloseDialogCommand.Execute(null, null);
-                            await DialogHost.Show(dialog, DialogHostId);
+                            MessageBox.Show("Có Lỗi - Số Lượng Phải Là Số", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                         }
                     }
                 }
             }
             catch
             {
-                dc.Content = "Có Lỗi";
-                dc.Tilte = "Thông Báo";
-                dialog = new DialogOk() { DataContext = dc };
-                DialogHost.CloseDialogCommand.Execute(null, null);
-                await DialogHost.Show(dialog, DialogHostId);
+                MessageBox.Show("Có Lỗi", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
-        private async void Raiserror()
-        {
-            dc.Content = "Có Lỗi";
-            dc.Tilte = "Thông Báo";
-            dialog = new DialogOk() { DataContext = dc };
-            DialogHost.CloseDialogCommand.Execute(null, null);
-            await DialogHost.Show(dialog, DialogHostId);
-        }
+
 
         //paralell async
         private void CreateData()
