@@ -172,7 +172,7 @@
                                                          x:Name="Border"
                                                          Height="470"
                                                          Width="300"
-                                                         Margin="10">
+                                                         Margin="20 10">
                                         <StackPanel>
                                             <Ellipse Height="120"
                                                      Width="120"

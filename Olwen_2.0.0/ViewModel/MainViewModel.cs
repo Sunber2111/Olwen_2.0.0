@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
+using Olwen_2._0._0.DependencyInjection;
 using Prism.Commands;
 
 namespace Olwen_2._0._0.ViewModel
@@ -9,6 +11,8 @@ namespace Olwen_2._0._0.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private int _slide;
+        private string _userName;
+        private BitmapImage _image;
 
         public DelegateCommand<int?> SlideChange
         {
@@ -30,9 +34,40 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
 
+        public string UserName
+        {
+            get
+            {
+                return _userName;
+            }
+
+            set
+            {
+                _userName = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public BitmapImage Image
+        {
+            get
+            {
+                return _image;
+            }
+
+            set
+            {
+                _image = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
             Slide = 0;
+            UserName = StateLogin.AccountLogin.Username;
+            if (StateLogin.AccountLogin.Image != null)
+                Image = StateLogin.AccountLogin.Image.LoadImage();
 
             SlideChange = new DelegateCommand<int?>(ChangeSlide);
         }

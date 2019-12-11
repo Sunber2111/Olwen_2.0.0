@@ -12,6 +12,7 @@
         Height="750"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         FontFamily="Arial"
+        Icon="../../coffee_to_go_48px.ico"
         xmlns:s="clr-namespace:System;assembly=mscorlib"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         Width="1100">
@@ -49,6 +50,17 @@
     <StackPanel>
 
         <Grid Height="60">
+            <Border 
+                Height="50"
+                Margin="80 0 0 0"
+                Width="160"
+                HorizontalAlignment="Left">
+                <md:Chip Content="{Binding UserName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
+                    <md:Chip.Icon>
+                        <Image Source="{Binding Image,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                    </md:Chip.Icon>
+                </md:Chip>
+            </Border>
             <StackPanel HorizontalAlignment="Right"
                         Orientation="Horizontal">
 
@@ -152,6 +164,19 @@
 
                 </Button>
 
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Supllier"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>8</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+
             </StackPanel>
 
         </Grid>
@@ -227,7 +252,15 @@
                     <md:TransitionerSlide>
                         <myuc:PageLogistic />
                     </md:TransitionerSlide>
-                    
+
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="FadeIn"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageSupplier/>
+                    </md:TransitionerSlide>
                 </md:Transitioner>
 
 

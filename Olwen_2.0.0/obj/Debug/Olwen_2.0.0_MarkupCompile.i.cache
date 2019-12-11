@@ -16,5 +16,5 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\App.xaml
 156-1103649001
 ResourceXAML\MainResource.xaml;View\Components\CategoryProfile.xaml;View\Components\ControlBar.xaml;View\Components\CustomerOrder.xaml;View\Components\CustomerProfile.xaml;View\Components\EmployeeProfile.xaml;View\Components\LogisticProfile.xaml;View\Components\OrderProfile.xaml;View\Components\ProductProfile.xaml;View\Components\ProductStoreProfile.xaml;View\Components\PurchasingProfile.xaml;View\Components\StoreProfile.xaml;View\Components\SupplierProfile.xaml;View\DialogsResult\DialogOk.xaml;View\DialogsResult\DialogYesNo.xaml;View\Pages\PageCustomer.xaml;View\Pages\PageEmployee.xaml;View\Pages\PageHome.xaml;View\Pages\PageLogistic.xaml;View\Pages\PageProduct.xaml;View\Pages\PagePurchasing.xaml;View\Pages\PageSales.xaml;View\Pages\PageStore.xaml;View\Pages\PageSupplier.xaml;View\Windows\LoginWindow.xaml;View\Windows\MainWindow.xaml;
 
-True
+False
 

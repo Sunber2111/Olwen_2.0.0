@@ -168,7 +168,9 @@
                                                                Text="{Binding PurDate,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                                                                VerticalAlignment="Center" />
 
-                                                    <Button HorizontalAlignment="Right"
+                                                    <!--
+                                                    
+                                                        <Button HorizontalAlignment="Right"
                                                             Command="{Binding ElementName=lvOrder,Path=DataContext.UpdateProCommand}"
                                                             CommandParameter="{Binding ProductID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                                             BorderBrush="{x:Null}"
@@ -187,6 +189,8 @@
                                                             HorizontalAlignment="Right"
                                                             Margin="0 0 20 0"
                                                             Width="80" />
+                                                    
+                                                    -->
 
                                                 </Grid>
                                             </Border>

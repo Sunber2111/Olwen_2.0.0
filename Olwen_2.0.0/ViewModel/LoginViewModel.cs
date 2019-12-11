@@ -111,6 +111,7 @@ namespace Olwen_2._0._0.ViewModel
                         StateLogin.AccountLogin.Password = Password;
                         StateLogin.AccountLogin.Id = result.First().Employee.EmpID;
                         StateLogin.AccountLogin.Username = result.First().Employee.Name;
+                        StateLogin.AccountLogin.Image = result.First().Avatar;
                         StateLogin.WrireJson();
                     }
 

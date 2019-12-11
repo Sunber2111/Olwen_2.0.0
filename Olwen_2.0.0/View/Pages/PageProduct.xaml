@@ -201,7 +201,7 @@
                                         Background="White"
                                         BorderBrush="#FFC8C8C8"
                                         BorderThickness="0.6"
-                                        Width="565"
+                                        Width="555"
                                         Height="60">
 
                                     <Grid>
@@ -215,7 +215,7 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="1*" />
                                                 <ColumnDefinition Width="3*" />
-                                                <ColumnDefinition Width="2*" />
+                                                <ColumnDefinition Width="2.5*" />
                                             </Grid.ColumnDefinitions>
 
                                             <Grid Grid.Column="0">
@@ -231,6 +231,7 @@
                                             <Grid Grid.Column="1">
 
                                                 <TextBlock VerticalAlignment="Center"
+                                                           Margin="20 0 0 0"
                                                            FontSize="14"
                                                            Text="{Binding Name,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
 
@@ -515,7 +516,7 @@
                                     Background="White"
                                     BorderBrush="#FFC8C8C8"
                                     BorderThickness="0.6"
-                                    Width="900"
+                                    Width="880"
                                     Height="60">
 
                                 <Grid>

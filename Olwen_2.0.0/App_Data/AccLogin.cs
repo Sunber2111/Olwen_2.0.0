@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace Olwen_2._0._0.App_Data
 {
@@ -15,5 +16,7 @@ namespace Olwen_2._0._0.App_Data
         public string Username { get; set; }
 
         public int? Id { get; set; }
+
+        public byte[] Image { get; set; }
     }
 }
