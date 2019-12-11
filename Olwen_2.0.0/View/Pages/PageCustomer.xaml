@@ -19,7 +19,7 @@
     </i:Interaction.Triggers>
     <materialDesign:DialogHost 
         CloseOnClickAway="True"
-        Identifier="RootDialogHost1">
+                               Identifier="RootDialogHost1w">
         <Grid>
 
         <Grid>

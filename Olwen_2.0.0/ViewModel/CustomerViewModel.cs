@@ -22,7 +22,7 @@ namespace Olwen_2._0._0.ViewModel
     public class CustomerViewModel : ViewModelBase
     {
         private IAsyncRepository<Customer> customer_repo;
-        private const string DialogHostId = "RootDialogHost1";
+        private const string DialogHostId = "RootDialogHost1w";
         private ObservableCollection<Customer> _listCustomer;
         private ObservableCollection<string> _listKinds;
         private ObservableCollection<OrderHeader> _listOCus;

@@ -56,8 +56,7 @@
                                                        VerticalAlignment="Center"
                                                        Text="{Binding OrderID,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
 
-                                            <TextBlock HorizontalAlignment="Right"
-                                                       Margin="100 0 0 0"
+                                            <TextBlock HorizontalAlignment="Center"
                                                        VerticalAlignment="Center"
                                                        Text="{Binding OrderDate,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
 
@@ -88,19 +87,41 @@
 
                 <StackPanel Grid.Column="1">
 
+                <Grid Margin="10 0"
+                      Background="Black"
+                      Height="60">
+                    <TextBlock Margin="40 0 0 0"
+                               FontSize="14"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Text="ProductID" />
+                    <TextBlock TextWrapping="WrapWithOverflow"
+                               Width="120"
+                               FontSize="14"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               Text="Name" />
+                    <TextBlock VerticalAlignment="Center"
+                               Text="Quantity"
+                               HorizontalAlignment="Right"
+                               Margin="0 0 60 0"
+                               FontSize="14"
+                               Foreground="White" />
 
-                    <ListView  Margin="20"
+                </Grid>
+
+                <ListView  Margin="20"
                                Background="White"
-                               Height="560"
+                               Height="600"
                                ScrollViewer.VerticalScrollBarVisibility="Visible"
                                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                ItemsSource="{Binding ListODCus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                             >
+                             ItemContainerStyle="{StaticResource ListViewContainerStyle}">
 
                         <ListView.ItemTemplate>
 
                             <DataTemplate>
-                                <Border  Width="400"
+                                <Border  Width="480"
                                          x:Name="Border"
                                          Margin="0 10"
                                          BorderThickness="0.25"
