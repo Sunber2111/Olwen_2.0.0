@@ -105,6 +105,7 @@
     <Property Name="PurDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PurQty" Type="int" />
     <Property Name="UnitPrice" Type="money" />
+    <Property Name="StoreID" Type="int" />
   </EntityType>
   <EntityType Name="PurchasingHeader">
     <Key>
@@ -315,6 +316,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PurchasingDetail_Store">
+    <End Role="Store" Type="Self.Store" Multiplicity="0..1" />
+    <End Role="PurchasingDetail" Type="Self.PurchasingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="StoreID" />
+      </Principal>
+      <Dependent Role="PurchasingDetail">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_PurId_PurchasingDetail">
     <End Role="PurchasingHeader" Type="Self.PurchasingHeader" Multiplicity="1" />
     <End Role="PurchasingDetail" Type="Self.PurchasingDetail" Multiplicity="*" />
@@ -492,6 +505,10 @@
     <AssociationSet Name="FK_ProID_StoreDetail" Association="Self.FK_ProID_StoreDetail">
       <End Role="Product" EntitySet="Product" />
       <End Role="StoreDetail" EntitySet="StoreDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchasingDetail_Store" Association="Self.FK_PurchasingDetail_Store">
+      <End Role="Store" EntitySet="Store" />
+      <End Role="PurchasingDetail" EntitySet="PurchasingDetail" />
     </AssociationSet>
     <AssociationSet Name="FK_PurId_PurchasingDetail" Association="Self.FK_PurId_PurchasingDetail">
       <End Role="PurchasingHeader" EntitySet="PurchasingHeader" />

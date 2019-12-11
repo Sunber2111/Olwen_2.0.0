@@ -26,5 +26,7 @@ namespace Olwen_2._0._0.Repositories.Interfaces
         IEnumerable<ProductODModel> GetAllProductODByOrderID(int orderID);
 
         IEnumerable<Store> GetAllStoreByProductID(int productID);
+
+        IEnumerable<Store> GetAllStoreByNoProductID(int productID);
     }
 }

@@ -39,10 +39,11 @@ namespace Olwen_2._0._0.ViewModel
         private string _qty;
         static DialogContent dc = new DialogContent();
         static DialogOk dialog = new DialogOk();
-        private const string DialogHostId = "RootDialogHostsm";
+        private const string DialogHostId = "RootDialogHostsml";
         private ObservableCollection<ProductODModel> _listOD;
         private double _subtotal;
         private double _totalDue;
+        private string _employeeName;
 
         public DelegateCommand<int?> DeleteProODCommand
         {
@@ -289,8 +290,24 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
 
+        public string EmployeeName
+        {
+            get
+            {
+                return _employeeName;
+            }
+
+            set
+            {
+                _employeeName = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public CreateOrderViewModel()
         {
+            EmployeeName = StateLogin.AccountLogin.Username;
+
             LoadingCommand = new DelegateCommand(CreateData);
             InsertToCart = new DelegateCommand<int?>(InsertIntoCart);
             DeleteProODCommand = new DelegateCommand<int?>(DeleteProOD);

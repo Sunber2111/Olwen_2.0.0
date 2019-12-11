@@ -145,7 +145,6 @@ namespace Olwen_2._0._0.ViewModel
                 if (_selectedCus != null)
                 {
                     ListOCus = new ObservableCollection<OrderHeader>(SelectedCus.OrderHeaders);
-                    ListODCus = null; 
                     ShowListOrder();
                 }
             }
@@ -381,7 +380,6 @@ namespace Olwen_2._0._0.ViewModel
 
         private async void ShowListOrder()
         {
-            DialogHost.CloseDialogCommand.Execute(null, null);
             await DialogHost.Show(new CustomerOrder(), DialogHostId);
         }
 

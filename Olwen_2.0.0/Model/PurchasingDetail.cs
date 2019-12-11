@@ -19,8 +19,10 @@ namespace Olwen_2._0._0.Model
         public int PurDetailId { get; set; }
         public Nullable<int> PurQty { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<int> StoreID { get; set; }
     
         public virtual Product Product { get; set; }
+        public virtual Store Store { get; set; }
         public virtual PurchasingHeader PurchasingHeader { get; set; }
     }
 }

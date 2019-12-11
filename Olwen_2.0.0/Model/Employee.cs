@@ -9,9 +9,11 @@
 
 namespace Olwen_2._0._0.Model
 {
+    using Olwen_2._0._0.DependencyInjection;
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media.Imaging;
+
     public partial class Employee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -33,6 +35,18 @@ namespace Olwen_2._0._0.Model
         public Nullable<decimal> Salary { get; set; }
         public Nullable<bool> Sex { get; set; }
         public byte[] Avatar { get; set; }
+
+        public BitmapImage Image
+        {
+            get
+            {
+                return Avatar.LoadImage();
+            }
+            set
+            {
+                Avatar = value.ConvertToByte();
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Account> Accounts { get; set; }

@@ -35,12 +35,12 @@ namespace Olwen_2._0._0.Model
         public virtual DbSet<OrderHeader> OrderHeaders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
-        public virtual DbSet<PurchasingDetail> PurchasingDetails { get; set; }
         public virtual DbSet<PurchasingHeader> PurchasingHeaders { get; set; }
         public virtual DbSet<SalaryInfo> SalaryInfoes { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<StoreDetail> StoreDetails { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<PurchasingDetail> PurchasingDetails { get; set; }
     
         [DbFunction("DbEntities", "GetOrdersByCusID")]
         public virtual IQueryable<GetOrdersByCusID_Result> GetOrdersByCusID(Nullable<int> maKH)

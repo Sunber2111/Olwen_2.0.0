@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Olwen_2._0._0.ViewModel
 {
@@ -26,7 +27,7 @@ namespace Olwen_2._0._0.ViewModel
         private string _cusName, _empName, _deiName, _orderDate, _discount, _subtotal;
         static DialogContent dc = new DialogContent();
         static DialogOk dialog = new DialogOk();
-        private const string DialogHostId = "RootDialogHostId6";
+        private const string DialogHostId = "RootDialogHostId61";
 
         public DelegateCommand LoadedCommand
         {
@@ -248,16 +249,11 @@ namespace Olwen_2._0._0.ViewModel
         {
             try
             {
-                DialogHost.CloseDialogCommand.Execute(null, null);
                 await DialogHost.Show(new OrderProfile(), DialogHostId);
             }
             catch
             {
-                dc.Content = "Có Lỗi";
-                dc.Tilte = "Thông Báo";
-                dialog = new DialogOk() { DataContext = dc };
-                DialogHost.CloseDialogCommand.Execute(null, null);
-                await DialogHost.Show(dialog, DialogHostId);
+                MessageBox.Show("Có Lỗi");
             }
         }
 

@@ -37,7 +37,7 @@ namespace Olwen_2._0._0.ViewModel
         private string _seaKey1, _seaKey2;
         static DialogContent dc = new DialogContent();
         static DialogOk dialog = new DialogOk();
-        private const string DialogHostId = "RootDialogHostId";
+        private const string DialogHostId = "RootDialogHostIdA";
         private ProductCategory _selectedCate;
         private ProductCategory _proCateSelected;
         private OpenFileDialog Op;

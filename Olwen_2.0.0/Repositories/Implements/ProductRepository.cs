@@ -128,5 +128,13 @@ namespace Olwen_2._0._0.Repositories.Implements
                         select c;
             return query.ToList();
         }
+
+        public IEnumerable<Store> GetAllStoreByNoProductID(int productID)
+        {
+            var query = from c in dbcontext.Stores
+                        where !(c.StoreDetails.Where(t => t.Product.ProductID == productID) !=null)
+                        select c;
+            return query.ToList();
+        }
     }
 }

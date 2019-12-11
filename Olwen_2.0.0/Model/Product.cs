@@ -18,8 +18,8 @@ namespace Olwen_2._0._0.Model
         public Product()
         {
             this.OrderDetails = new HashSet<OrderDetail>();
-            this.PurchasingDetails = new HashSet<PurchasingDetail>();
             this.StoreDetails = new HashSet<StoreDetail>();
+            this.PurchasingDetails = new HashSet<PurchasingDetail>();
         }
     
         public int ProductID { get; set; }
@@ -34,8 +34,8 @@ namespace Olwen_2._0._0.Model
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchasingDetail> PurchasingDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StoreDetail> StoreDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchasingDetail> PurchasingDetails { get; set; }
     }
 }

@@ -103,17 +103,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PurchasingDetails">
-      <EntityTypeMapping TypeName="OlwenModel.PurchasingDetail">
-        <MappingFragment StoreEntitySet="PurchasingDetail">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="PurId" ColumnName="PurId" />
-          <ScalarProperty Name="PurDetailId" ColumnName="PurDetailId" />
-          <ScalarProperty Name="PurQty" ColumnName="PurQty" />
-          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PurchasingHeaders">
       <EntityTypeMapping TypeName="OlwenModel.PurchasingHeader">
         <MappingFragment StoreEntitySet="PurchasingHeader">
@@ -213,5 +202,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="PurchasingDetails">
+      <EntityTypeMapping TypeName="OlwenModel.PurchasingDetail">
+        <MappingFragment StoreEntitySet="PurchasingDetail">
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="PurQty" ColumnName="PurQty" />
+          <ScalarProperty Name="PurDetailId" ColumnName="PurDetailId" />
+          <ScalarProperty Name="PurId" ColumnName="PurId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

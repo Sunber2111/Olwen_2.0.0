@@ -10,53 +10,228 @@
         WindowStartupLocation="CenterScreen"
         xmlns:myc="clr-namespace:Olwen_2._0._0.View.Components"
         Height="750"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        FontFamily="Arial"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         Width="1100">
+    <Window.Resources>
+        <Style x:Key="MyButton"
+               TargetType="Button">
+            <Setter Property="FontSize" 
+                    Value="14"/>
+            <Setter Property="OverridesDefaultStyle"
+                    Value="True" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                                BorderThickness="0"
+                                BorderBrush="Black"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Foreground"
+                                        Value="#0DBFEF" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
 
-    <Grid>
-        <!--
-        <ListView Width="400"
-                  x:Name="lv"
-                  Height="500">
-            
+        <Grid Height="60">
+            <StackPanel HorizontalAlignment="Right"
+                        Orientation="Horizontal">
 
-            
+                <Button Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{Binding SlideChange}"
+                        BorderThickness="0"
+                        Style="{DynamicResource MyButton}"
+                        Content="Home"
+                        Width="100">
 
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Border Background="White"
-                                        Name="Bd">
-                                    <Border.Style>
-                                        <Style TargetType="Border">
-                                            <Setter Property="BorderBrush"
-                                                    Value="White" />
-                                        </Style>
-                                    </Border.Style>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Margin="10"
-                                                   Name="t1"
-                                                   Text="{Binding ObName}" />
-                                    </StackPanel>
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter TargetName="Bd"
-                                                Property="Background"
-                                                Value="HotPink" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-        -->
+                    <Button.CommandParameter>
+                        <s:Int32>0</s:Int32>
+                    </Button.CommandParameter>
+                    
+                </Button>
 
-        <myuc:PageSales />
+                <Button Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        Command="{Binding SlideChange}"
+                        Style="{DynamicResource MyButton}"
+                        BorderThickness="0"
+                        Content="Product"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>1</s:Int32>
+                    </Button.CommandParameter>
 
-    </Grid>
+                </Button>
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Customer"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>2</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Employee"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>3</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+                <Button Background="{x:Null}"
+                        
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Store"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>4</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Order"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>5</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Purchasing"
+                        Width="110">
+                    <Button.CommandParameter>
+                        <s:Int32>6</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+                <Button Background="{x:Null}"
+                        Style="{DynamicResource MyButton}"
+                        Command="{Binding SlideChange}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Content="Logictics"
+                        Width="100">
+                    <Button.CommandParameter>
+                        <s:Int32>7</s:Int32>
+                    </Button.CommandParameter>
+
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+
+        <ScrollViewer  Height="800"
+                      Background="Transparent"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Stretch"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto">
+            <Grid>
+
+                <md:Transitioner x:Name="Sildes"
+                                 SelectedIndex="{Binding Slide,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                 AutoApplyTransitionOrigins="True">
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="FadeIn"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageHome />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="SlideInFromBottom"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageProduct />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="SlideInFromLeft"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageCustomer />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="SlideInFromLeft"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageEmployee />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="ExpandIn"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageStore />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="SlideInFromLeft"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PageSales />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <md:TransitionerSlide.OpeningEffects>
+                            <md:TransitionEffect Kind="SlideInFromTop"
+                                                 Duration="0:0:1" />
+                        </md:TransitionerSlide.OpeningEffects>
+                        <myuc:PagePurchasing />
+                    </md:TransitionerSlide>
+
+                    <md:TransitionerSlide>
+                        <myuc:PageLogistic />
+                    </md:TransitionerSlide>
+                    
+                </md:Transitioner>
+
+
+            </Grid>
+        </ScrollViewer>
+    </StackPanel>
 </Window>

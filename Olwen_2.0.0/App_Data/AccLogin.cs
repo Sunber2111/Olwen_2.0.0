@@ -11,5 +11,9 @@ namespace Olwen_2._0._0.App_Data
         public string NameLogin { get; set; }
 
         public string Password { get; set; }
+
+        public string Username { get; set; }
+
+        public int? Id { get; set; }
     }
 }

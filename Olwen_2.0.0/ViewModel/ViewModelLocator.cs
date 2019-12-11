@@ -29,6 +29,12 @@ namespace Olwen_2._0._0.ViewModel
             SimpleIoc.Default.Register<CreateOrderViewModel>();
 
             SimpleIoc.Default.Register<LoginViewModel>();
+
+            SimpleIoc.Default.Register<PurchasingViewModel>();
+
+            SimpleIoc.Default.Register<CreatePurchasingViewModel>();
+
+            SimpleIoc.Default.Register<LogicstisViewModel>();
         }
 
         public MainViewModel Main
@@ -103,6 +109,29 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
 
+        public PurchasingViewModel Purchasing
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<PurchasingViewModel>();
+            }
+        }
+
+        public CreatePurchasingViewModel CreatePurchasing
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<CreatePurchasingViewModel>();
+            }
+        }
+
+        public LogicstisViewModel Log
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LogicstisViewModel>();
+            }
+        }
 
         public static void Cleanup()
         {

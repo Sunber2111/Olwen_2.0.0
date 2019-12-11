@@ -18,7 +18,7 @@
     <materialDesign:DialogHost Identifier="RootDialogHost2">
         
         <Grid>
-            <StackPanel Background="#F5F5F5">
+            <StackPanel Background="#FFFFFF">
 
                 <StackPanel Orientation="Horizontal"
                             Margin="0 10">
@@ -157,7 +157,7 @@
                     <Grid  Margin="20">
 
                         <ListView   x:Name="lvCus"
-                                    Height="700"
+                                    Height="760"
                                     ScrollViewer.VerticalScrollBarVisibility="Visible"
                                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                     ItemsSource="{Binding ListEmployee, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -358,7 +358,7 @@
 
                 </Grid>
 
-                <Grid Height="50"></Grid>
+                <Grid Height="70"></Grid>
 
             </StackPanel>
 

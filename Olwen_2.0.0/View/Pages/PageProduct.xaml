@@ -20,7 +20,7 @@
 
     <materialDesign:DialogHost
         CloseOnClickAway="True"
-        Identifier="RootDialogHostId">
+        Identifier="RootDialogHostIdA">
 
         <Grid>
         
@@ -257,7 +257,7 @@
 
                                             <Grid Grid.Column="0">
 
-                                                <Button Command="{Binding ElementName=lvCate,Path=DataContext.UpdateCategoryCommand}"
+                                                <Button Command="{Binding ElementName=lvCate,Path=DataContext.UpdateCommand}"
                                                         CommandParameter="{Binding CatelogyID,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                                         BorderBrush="{x:Null}"
                                                         BorderThickness="0"

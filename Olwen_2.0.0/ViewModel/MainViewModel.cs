@@ -1,36 +1,55 @@
+﻿using System;
+using System.Windows;
 using GalaSoft.MvvmLight;
+using Prism.Commands;
 
 namespace Olwen_2._0._0.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
+  
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel()
+        private int _slide;
+
+        public DelegateCommand<int?> SlideChange
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            get;
+            private set;
         }
 
-       
+        public int Slide
+        {
+            get
+            {
+                return _slide;
+            }
+
+            set
+            {
+                _slide = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public MainViewModel()
+        {
+            Slide = 0;
+
+            SlideChange = new DelegateCommand<int?>(ChangeSlide);
+        }
+
+        private void ChangeSlide(int? obj)
+        {
+            try
+            {
+                if(obj!=null)
+                {
+                    Slide = (int)obj;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("có lỗi");
+            }
+        }
     }
 }

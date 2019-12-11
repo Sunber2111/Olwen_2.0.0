@@ -128,8 +128,8 @@
     <Property Name="CategoryID" Type="Int32" />
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_ProId_OD" FromRole="Product" ToRole="OrderDetail" />
     <NavigationProperty Name="ProductCategory" Relationship="Self.FK_CategoryID_Product" FromRole="Product" ToRole="ProductCategories" />
-    <NavigationProperty Name="PurchasingDetails" Relationship="Self.FK_ProId_PurchasingDetail" FromRole="Product" ToRole="PurchasingDetail" />
     <NavigationProperty Name="StoreDetails" Relationship="Self.FK_ProID_StoreDetail" FromRole="Product" ToRole="StoreDetail" />
+    <NavigationProperty Name="PurchasingDetails" Relationship="OlwenModel.FK_ProId_PurchasingDetail" FromRole="Product" ToRole="PurchasingDetail" />
   </EntityType>
   <EntityType Name="ProductCategory">
     <Key>
@@ -140,19 +140,6 @@
     <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Products" Relationship="Self.FK_CategoryID_Product" FromRole="ProductCategories" ToRole="Product" />
-  </EntityType>
-  <EntityType Name="PurchasingDetail">
-    <Key>
-      <PropertyRef Name="PurId" />
-      <PropertyRef Name="PurDetailId" />
-    </Key>
-    <Property Name="ProductId" Type="Int32" />
-    <Property Name="PurId" Type="Int32" Nullable="false" />
-    <Property Name="PurDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PurQty" Type="Int32" />
-    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_ProId_PurchasingDetail" FromRole="PurchasingDetail" ToRole="Product" />
-    <NavigationProperty Name="PurchasingHeader" Relationship="Self.FK_PurId_PurchasingDetail" FromRole="PurchasingDetail" ToRole="PurchasingHeader" />
   </EntityType>
   <EntityType Name="PurchasingHeader">
     <Key>
@@ -165,8 +152,8 @@
     <Property Name="EmpID" Type="Int32" />
     <NavigationProperty Name="Employee" Relationship="Self.FK_EmpId_P" FromRole="PurchasingHeader" ToRole="Employee" />
     <NavigationProperty Name="Logistic" Relationship="Self.FK_LogId_PH" FromRole="PurchasingHeader" ToRole="Logistics" />
-    <NavigationProperty Name="PurchasingDetails" Relationship="Self.FK_PurId_PurchasingDetail" FromRole="PurchasingHeader" ToRole="PurchasingDetail" />
     <NavigationProperty Name="Supplier" Relationship="Self.FK_SuplierID_P" FromRole="PurchasingHeader" ToRole="Supplier" />
+    <NavigationProperty Name="PurchasingDetails" Relationship="OlwenModel.FK_PurId_PurchasingDetail" FromRole="PurchasingHeader" ToRole="PurchasingDetail" />
   </EntityType>
   <EntityType Name="SalaryInfo">
     <Key>
@@ -192,6 +179,7 @@
     <NavigationProperty Name="Employee" Relationship="Self.FK_EmpID_Store" FromRole="Store" ToRole="Employee" />
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_StoreID_OrderDetail" FromRole="Store" ToRole="OrderDetail" />
     <NavigationProperty Name="StoreDetails" Relationship="Self.FK_StoreID_StoreDetail" FromRole="Store" ToRole="StoreDetail" />
+    <NavigationProperty Name="PurchasingDetails" Relationship="OlwenModel.FK_PurchasingDetail_Store" FromRole="Store" ToRole="PurchasingDetail" />
   </EntityType>
   <EntityType Name="StoreDetail">
     <Key>
@@ -362,18 +350,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ProId_PurchasingDetail">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="PurchasingDetail" Type="Self.PurchasingDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductID" />
-      </Principal>
-      <Dependent Role="PurchasingDetail">
-        <PropertyRef Name="ProductId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ProID_StoreDetail">
     <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="StoreDetail" Type="Self.StoreDetail" Multiplicity="*" />
@@ -383,18 +359,6 @@
       </Principal>
       <Dependent Role="StoreDetail">
         <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PurId_PurchasingDetail">
-    <End Role="PurchasingHeader" Type="Self.PurchasingHeader" Multiplicity="1" />
-    <End Role="PurchasingDetail" Type="Self.PurchasingDetail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PurchasingHeader">
-        <PropertyRef Name="PurID" />
-      </Principal>
-      <Dependent Role="PurchasingDetail">
-        <PropertyRef Name="PurId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -431,7 +395,6 @@
     <EntitySet Name="OrderHeaders" EntityType="Self.OrderHeader" />
     <EntitySet Name="Products" EntityType="Self.Product" />
     <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
-    <EntitySet Name="PurchasingDetails" EntityType="Self.PurchasingDetail" />
     <EntitySet Name="PurchasingHeaders" EntityType="Self.PurchasingHeader" />
     <EntitySet Name="SalaryInfoes" EntityType="Self.SalaryInfo" />
     <EntitySet Name="Stores" EntityType="Self.Store" />
@@ -485,17 +448,9 @@
       <End Role="ProductCategories" EntitySet="ProductCategories" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK_ProId_PurchasingDetail" Association="Self.FK_ProId_PurchasingDetail">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="PurchasingDetail" EntitySet="PurchasingDetails" />
-    </AssociationSet>
     <AssociationSet Name="FK_ProID_StoreDetail" Association="Self.FK_ProID_StoreDetail">
       <End Role="Product" EntitySet="Products" />
       <End Role="StoreDetail" EntitySet="StoreDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PurId_PurchasingDetail" Association="Self.FK_PurId_PurchasingDetail">
-      <End Role="PurchasingHeader" EntitySet="PurchasingHeaders" />
-      <End Role="PurchasingDetail" EntitySet="PurchasingDetails" />
     </AssociationSet>
     <AssociationSet Name="FK_SuplierID_P" Association="Self.FK_SuplierID_P">
       <End Role="Supplier" EntitySet="Suppliers" />
@@ -520,5 +475,69 @@
     <FunctionImport Name="GetSlspFromSup" IsComposable="true" ReturnType="Collection(OlwenModel.GetSlspFromSup_Result)">
       <Parameter Name="maNSX" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="PurchasingDetails" EntityType="OlwenModel.PurchasingDetail" />
+    <AssociationSet Name="FK_ProId_PurchasingDetail" Association="OlwenModel.FK_ProId_PurchasingDetail">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="PurchasingDetail" EntitySet="PurchasingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurchasingDetail_Store" Association="OlwenModel.FK_PurchasingDetail_Store">
+      <End Role="Store" EntitySet="Stores" />
+      <End Role="PurchasingDetail" EntitySet="PurchasingDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PurId_PurchasingDetail" Association="OlwenModel.FK_PurId_PurchasingDetail">
+      <End Role="PurchasingHeader" EntitySet="PurchasingHeaders" />
+      <End Role="PurchasingDetail" EntitySet="PurchasingDetails" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PurchasingDetail">
+    <Key>
+      <PropertyRef Name="PurId" />
+      <PropertyRef Name="PurDetailId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="PurId" Type="Int32" Nullable="false" />
+    <Property Name="PurDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PurQty" Type="Int32" />
+    <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="StoreID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="OlwenModel.FK_ProId_PurchasingDetail" FromRole="PurchasingDetail" ToRole="Product" />
+    <NavigationProperty Name="Store" Relationship="OlwenModel.FK_PurchasingDetail_Store" FromRole="PurchasingDetail" ToRole="Store" />
+    <NavigationProperty Name="PurchasingHeader" Relationship="OlwenModel.FK_PurId_PurchasingDetail" FromRole="PurchasingDetail" ToRole="PurchasingHeader" />
+  </EntityType>
+  <Association Name="FK_ProId_PurchasingDetail">
+    <End Type="OlwenModel.Product" Role="Product" Multiplicity="0..1" />
+    <End Type="OlwenModel.PurchasingDetail" Role="PurchasingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="PurchasingDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurchasingDetail_Store">
+    <End Type="OlwenModel.Store" Role="Store" Multiplicity="0..1" />
+    <End Type="OlwenModel.PurchasingDetail" Role="PurchasingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="StoreID" />
+      </Principal>
+      <Dependent Role="PurchasingDetail">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PurId_PurchasingDetail">
+    <End Type="OlwenModel.PurchasingHeader" Role="PurchasingHeader" Multiplicity="1" />
+    <End Type="OlwenModel.PurchasingDetail" Role="PurchasingDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchasingHeader">
+        <PropertyRef Name="PurID" />
+      </Principal>
+      <Dependent Role="PurchasingDetail">
+        <PropertyRef Name="PurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

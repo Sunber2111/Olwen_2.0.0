@@ -13,7 +13,7 @@
             <i:InvokeCommandAction Command="{Binding LoadingCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <md:DialogHost Identifier="RootDialogHostsm">
+    <md:DialogHost Identifier="RootDialogHostsml">
         <StackPanel Width="1100">
 
         <Border
@@ -211,7 +211,7 @@
 
                         <TextBlock Margin="20 0"
                                    FontSize="16"
-                                   Text="Trần Quang Vũ" />
+                                   Text="{Binding EmployeeName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
 
                     </StackPanel>
 

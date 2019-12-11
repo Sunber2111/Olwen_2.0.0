@@ -264,11 +264,14 @@
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
     <Compile Include="Repositories\Interfaces\IStoreDetail.cs" />
     <Compile Include="ViewModel\CreateOrderViewModel.cs" />
+    <Compile Include="ViewModel\CreatePurchasingViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\LogicstisViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\PurchasingViewModel.cs" />
     <Compile Include="ViewModel\SalesViewModel.cs" />
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
@@ -288,6 +291,9 @@
     <Compile Include="View\Components\EmployeeProfile.xaml.cs">
       <DependentUpon>EmployeeProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\LogisticProfile.xaml.cs">
+      <DependentUpon>LogisticProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\OrderProfile.xaml.cs">
       <DependentUpon>OrderProfile.xaml</DependentUpon>
     </Compile>
@@ -296,6 +302,9 @@
     </Compile>
     <Compile Include="View\Components\ProductStoreProfile.xaml.cs">
       <DependentUpon>ProductStoreProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Components\PurchasingProfile.xaml.cs">
+      <DependentUpon>PurchasingProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Components\StoreProfile.xaml.cs">
       <DependentUpon>StoreProfile.xaml</DependentUpon>
@@ -317,8 +326,17 @@
     <Compile Include="View\Pages\PageEmployee.xaml.cs">
       <DependentUpon>PageEmployee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\PageHome.xaml.cs">
+      <DependentUpon>PageHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageLogistic.xaml.cs">
+      <DependentUpon>PageLogistic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\PageProduct.xaml.cs">
       <DependentUpon>PageProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PagePurchasing.xaml.cs">
+      <DependentUpon>PagePurchasing.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PageSales.xaml.cs">
       <DependentUpon>PageSales.xaml</DependentUpon>
@@ -363,6 +381,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Components\LogisticProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Components\OrderProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -372,6 +394,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Components\ProductStoreProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\PurchasingProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,7 +425,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\PageHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageLogistic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\PageProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PagePurchasing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

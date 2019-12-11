@@ -133,3 +133,13 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.pdb
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\Olwen_2.0.0.csprojAssemblyReference.cache
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PagePurchasing.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PagePurchasing.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\PurchasingProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\PurchasingProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageHome.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageHome.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\LogisticProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageLogistic.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\LogisticProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageLogistic.baml

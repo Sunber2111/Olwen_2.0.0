@@ -18,7 +18,8 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
-    <md:DialogHost Identifier="RootDialogHostId6">
+    <md:DialogHost Identifier="RootDialogHostId61"
+                   CloseOnClickAway="True">
         
         <StackPanel>
 

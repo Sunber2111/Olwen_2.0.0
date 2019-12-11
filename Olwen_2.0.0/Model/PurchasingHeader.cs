@@ -28,8 +28,8 @@ namespace Olwen_2._0._0.Model
     
         public virtual Employee Employee { get; set; }
         public virtual Logistic Logistic { get; set; }
+        public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchasingDetail> PurchasingDetails { get; set; }
-        public virtual Supplier Supplier { get; set; }
     }
 }
