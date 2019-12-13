@@ -56,6 +56,12 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -266,6 +272,7 @@
     <Compile Include="Repositories\Interfaces\IAsyncRepository.cs" />
     <Compile Include="Repositories\Interfaces\IProductRepository.cs" />
     <Compile Include="Repositories\Interfaces\IStoreDetail.cs" />
+    <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\CreateOrderViewModel.cs" />
     <Compile Include="ViewModel\CreatePurchasingViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
@@ -279,6 +286,9 @@
     <Compile Include="ViewModel\StoreViewModel.cs" />
     <Compile Include="ViewModel\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\Components\AccountProfile.xaml.cs">
+      <DependentUpon>AccountProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\CategoryProfile.xaml.cs">
       <DependentUpon>CategoryProfile.xaml</DependentUpon>
     </Compile>
@@ -309,6 +319,9 @@
     <Compile Include="View\Components\PurchasingProfile.xaml.cs">
       <DependentUpon>PurchasingProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Components\SalaryInfoEmp.xaml.cs">
+      <DependentUpon>SalaryInfoEmp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Components\StoreProfile.xaml.cs">
       <DependentUpon>StoreProfile.xaml</DependentUpon>
     </Compile>
@@ -322,6 +335,12 @@
     </Compile>
     <Compile Include="View\DialogsResult\DialogYesNo.xaml.cs">
       <DependentUpon>DialogYesNo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageAccount.xaml.cs">
+      <DependentUpon>PageAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PageAnalysis.xaml.cs">
+      <DependentUpon>PageAnalysis.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PageCustomer.xaml.cs">
       <DependentUpon>PageCustomer.xaml</DependentUpon>
@@ -361,6 +380,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Components\AccountProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -404,6 +427,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Components\SalaryInfoEmp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Components\StoreProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -417,6 +444,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DialogsResult\DialogYesNo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PageAnalysis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

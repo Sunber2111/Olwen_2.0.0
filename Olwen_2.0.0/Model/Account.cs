@@ -9,9 +9,11 @@
 
 namespace Olwen_2._0._0.Model
 {
+    using Olwen_2._0._0.DependencyInjection;
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media.Imaging;
+
     public partial class Account
     {
         public string NameLogin { get; set; }
@@ -25,6 +27,18 @@ namespace Olwen_2._0._0.Model
         public Nullable<bool> Sex { get; set; }
         public Nullable<int> EmpID { get; set; }
         public byte[] Avatar { get; set; }
+
+        public BitmapImage Image
+        {
+            get
+            {
+                return Avatar.LoadImage();
+            }
+            set
+            {
+                Avatar = value.ConvertToByte();
+            }
+        }
     
         public virtual Employee Employee { get; set; }
     }

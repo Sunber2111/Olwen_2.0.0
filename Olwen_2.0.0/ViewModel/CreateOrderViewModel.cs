@@ -338,6 +338,7 @@ namespace Olwen_2._0._0.ViewModel
             {
                 if(ListOD.Count()>0)
                 {
+
                     var newOrder = new OrderHeader();
 
                     if (SelectedCus != null)

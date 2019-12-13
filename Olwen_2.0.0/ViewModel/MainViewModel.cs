@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
 using Olwen_2._0._0.DependencyInjection;
+using Olwen_2._0._0.View.Windows;
 using Prism.Commands;
 
 namespace Olwen_2._0._0.ViewModel
@@ -62,6 +63,12 @@ namespace Olwen_2._0._0.ViewModel
             }
         }
 
+        public DelegateCommand<Window> LogoutCommand
+        {
+            get;
+            set;
+        }
+
         public MainViewModel()
         {
             Slide = 0;
@@ -70,6 +77,18 @@ namespace Olwen_2._0._0.ViewModel
                 Image = StateLogin.AccountLogin.Image.LoadImage();
 
             SlideChange = new DelegateCommand<int?>(ChangeSlide);
+            LogoutCommand = new DelegateCommand<Window>(Logout);
+
+        }
+
+        private void Logout(Window obj)
+        {
+            StateLogin.AccountLogin = null;
+            StateLogin.WrireJson();
+            LoginWindow view = new LoginWindow();
+            obj.Hide();
+            view.Show();
+            obj.Close();
         }
 
         private void ChangeSlide(int? obj)

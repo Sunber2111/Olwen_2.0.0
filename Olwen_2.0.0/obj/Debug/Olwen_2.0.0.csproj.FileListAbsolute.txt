@@ -143,3 +143,17 @@ C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\Logi
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageLogistic.g.cs
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\LogisticProfile.baml
 C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageLogistic.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\SalaryInfoEmp.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\SalaryInfoEmp.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageAccount.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageAccount.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.dll
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.pdb
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.xml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\AccountProfile.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Components\AccountProfile.baml
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageAnalysis.g.cs
+C:\Users\Nam\source\repos\Olwen_2.0.0\Olwen_2.0.0\obj\Debug\View\Pages\PageAnalysis.baml

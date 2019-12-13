@@ -35,6 +35,8 @@ namespace Olwen_2._0._0.ViewModel
             SimpleIoc.Default.Register<CreatePurchasingViewModel>();
 
             SimpleIoc.Default.Register<LogicstisViewModel>();
+
+            SimpleIoc.Default.Register<AccountViewModel>();
         }
 
         public MainViewModel Main
@@ -130,6 +132,14 @@ namespace Olwen_2._0._0.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<LogicstisViewModel>();
+            }
+        }
+
+        public AccountViewModel Account
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AccountViewModel>();
             }
         }
 

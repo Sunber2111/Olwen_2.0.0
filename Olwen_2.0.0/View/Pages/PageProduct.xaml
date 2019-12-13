@@ -162,7 +162,7 @@
                                     Content="Add"
                                     FontSize="13"
                                     Style="{StaticResource MaterialDesignFlatLightBgButton}"
-                                    Margin="122 0 0 0"
+                                    Margin="110 0 0 0"
                                     BorderBrush="{x:Null}">
                                 <Button.Background>
                                     <LinearGradientBrush EndPoint="0.5,1"
@@ -176,7 +176,18 @@
 
                             </Button>
 
-                        </StackPanel>
+                                <Button     Command="{Binding RefreshPCCommand}"
+                                            Width="70"
+                                            Height="30"
+                                            Background="#6C757D"
+                                            Foreground="White"
+                                            Padding="0"
+                                            Content="Refresh"
+                                            FontSize="13"
+                                            Style="{StaticResource MaterialDesignFlatLightBgButton}"
+                                            Margin="20 0 0 0"
+                                            BorderBrush="{x:Null}" />
+                            </StackPanel>
 
 
                     </Border>

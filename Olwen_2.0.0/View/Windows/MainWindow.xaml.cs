@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Olwen_2._0._0.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,6 +26,23 @@ namespace Olwen_2._0._0.View.Windows
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
 
+        }
+
+        private void Chip_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Bạn Muốn Đăng Xuất ?",
+                                "Thông Báo",
+                                MessageBoxButton.YesNo,
+                                MessageBoxImage.Warning)
+                                == MessageBoxResult.Yes)
+            {
+                StateLogin.AccountLogin = null;
+                StateLogin.WrireJson();
+                LoginWindow view = new LoginWindow();
+                this.Hide();
+                view.Show();
+                this.Close();
+            }
         }
     }
 

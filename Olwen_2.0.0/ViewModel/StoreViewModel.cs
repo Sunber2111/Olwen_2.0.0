@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using LiveCharts;
 using MaterialDesignThemes.Wpf;
 using Olwen_2._0._0.DataModel;
 using Olwen_2._0._0.Model;
@@ -33,6 +34,21 @@ namespace Olwen_2._0._0.ViewModel
         private string _storeID, _name, _address, _description;
         static DialogContent dc = new DialogContent();
         static DialogOk dialog = new DialogOk();
+
+        private ChartValues<int> _values;
+
+        public ChartValues<int> Values
+        {
+            get => _values;
+            set
+            {
+                if (_values != value)
+                {
+                    _values = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         public DelegateCommand<int?> DeleteStoreCommand
         {
@@ -142,6 +158,15 @@ namespace Olwen_2._0._0.ViewModel
                 if(_selectedSto!=null)
                 {
                     ListProSto = new ObservableCollection<ProductStoreModel>(product_repo.GetAllProductStoreByStoreID(_selectedSto.StoreID));
+                    if(ListProSto.Count()>0)
+                    {
+                        Values = new ChartValues<int>();
+                        foreach (var i in ListProSto)
+                        {
+                            if(i.Quantity!=null)
+                                Values.Add((int)i.Quantity);
+                        }
+                    }
                 }
             }
         }

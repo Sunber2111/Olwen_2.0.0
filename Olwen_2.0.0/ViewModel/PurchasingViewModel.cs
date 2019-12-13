@@ -72,6 +72,7 @@ namespace Olwen_2._0._0.ViewModel
                 RaisePropertyChanged();
                 if (value != null)
                 {
+                    if(_orderSelected.PurchasingDetails!=null)
                     ListOrderDetail = new ObservableCollection<ProductODModel>(
                                                                             _orderSelected.PurchasingDetails.Select(
                                                                                 c => new ProductODModel()

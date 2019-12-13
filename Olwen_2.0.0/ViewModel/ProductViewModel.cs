@@ -79,6 +79,12 @@ namespace Olwen_2._0._0.ViewModel
             private set;
         }
 
+        public DelegateCommand RefreshPCCommand
+        {
+            get;
+            private set;
+        }
+
         public DelegateCommand<int?> DeleteCategoryCommand
         {
             get;
@@ -445,6 +451,7 @@ namespace Olwen_2._0._0.ViewModel
             DeleteCategoryCommand = new DelegateCommand<int?>(DeleteCategory);
             UpdateCategoryCommand = new DelegateCommand<int?>(ShowDataCagory);
             SubmitCommand = new DelegateCommand<string>(SubmitCategory, CanSubmit);
+            RefreshPCCommand = new DelegateCommand(RefreshPC);
 
             //Product
             OpenDialogProduct = new DelegateCommand(ShowNewProduct);
@@ -454,6 +461,11 @@ namespace Olwen_2._0._0.ViewModel
             SubmitProductCommand = new DelegateCommand<string>(SubmitProductAsync);
             RefreshCommand = new DelegateCommand(RefreshProduct);
 
+        }
+
+        private void RefreshPC()
+        {
+            ListCatelogys = new ObservableCollection<ProductCategory>(categories_Repo.GetAll());
         }
 
         private async void RefreshProduct()
